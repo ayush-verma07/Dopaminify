@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  SignUp_LogIn
+//  Dopaminify
 //
 //  Created by Ayush on 6/15/23.
 //

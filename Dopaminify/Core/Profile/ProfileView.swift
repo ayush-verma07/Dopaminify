@@ -1,6 +1,6 @@
 //
 //  ProfileView.swift
-//  SignUp_LogIn
+//  Dopaminify
 //
 //  Created by Ayush on 6/16/23.
 //
