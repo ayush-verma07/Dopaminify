@@ -18,14 +18,17 @@ protocol AuthenticationFormProtocol {
 class AuthViewModel: ObservableObject {
     @Published var userSession: FirebaseAuth.User?
     @Published var currentUser: User?
-    
-    init() {
+
+
+   init() {
         self.userSession = Auth.auth().currentUser
-        
         Task {
-            await fetchUser()
+                await fetchUser()
+            }
         }
-    }
+
+        
+    
     
     func login(withEmail email: String, password: String) async throws {
         do {
@@ -63,9 +66,17 @@ class AuthViewModel: ObservableObject {
         }
     }
     
-    func deleteAccount() {
-        
-    }
+    func deleteAccount() async throws {
+            guard let user = Auth.auth().currentUser else {
+                throw NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "No authenticated user found"])
+            }
+
+            do {
+                try await user.delete()
+            } catch {
+                throw error
+            }
+        }
     
     func fetchUser() async {
         guard let uid = Auth.auth().currentUser?.uid else {return}
