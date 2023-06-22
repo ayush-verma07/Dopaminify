@@ -39,7 +39,7 @@ struct AboutView: View {
                     .font(.system(size: 14))
                     .padding(.top, 10)
                 
-                Text("In the social media context, the dopamine loop refers to a cycle of reward-seeking behavior driven by the release of dopamine, a neurotransmitter associated with pleasure and motivation. Social media platforms are designed to exploit this loop by providing users with instant gratification through likes, comments, asdasd and notifications, triggering the release of dopamine in the brain. As users scroll through endless feeds, watch engaging videos, and receive social validation, they become hooked on the constant anticipation of these rewards, leading to repetitive and addictive behavior as they seek to sustain the pleasurable sensations. This dopamine loop can contribute to excessive screen time, reduced productivity, and potential negative impacts on mental well-being.")
+                Text("In the social media context, the dopamine loop refers to a cycle of reward-seeking behavior driven by the release of dopamine, a neurotransmitter associated with pleasure and motivation. Social media platforms are designed to exploit this loop by providing users with instant gratification through likes, comments, and notifications, triggering the release of dopamine in the brain. As users scroll through endless feeds, watch engaging videos, and receive social validation, they become hooked on the constant anticipation of these rewards, leading to repetitive and addictive behavior as they seek to sustain the pleasurable sensations. This dopamine loop can contribute to excessive screen time, reduced productivity, and potential negative impacts on mental well-being.")
                     .font(.system(size: 10))
                     .multilineTextAlignment(.leading)
                     .padding(.horizontal, 30)
@@ -50,7 +50,7 @@ struct AboutView: View {
                         .font(.system(size: 14))
                         .padding(.top, 10)
                     
-                    Text("As teens, ourselves, who also spend time scrolling on various social media platforms, we have personally experienced the negative aspects of excessive screen time. Recognizing the addictive nature of social media and its destructive effects on productivity, well-being, and routine, we were both desperate for a solution. Therefore, Dopaminify was created. Fueled by our desire to regain control over our digital habits and our personal experiences, to create an app that empowers users, especially fellow teens, to set and achieve their desired screen time goals, was a personal goal of ours.")
+                    Text("As teenagers who also spend time scrolling on various social media platforms, we have personally experienced the negative aspects of excessive screen time. Recognizing the addictive nature of social media and its destructive effects on productivity, well-being, and routine, we were both desperate for a solution. Therefore, we created Dopaminify. Fueled by our desire to regain control over our digital habits and our personal experiences, our goal was to create an app that empowers users, especially fellow teens, to set and achieve their desired screen time goals.")
                         .font(.system(size: 10))
                         .multilineTextAlignment(.leading)
                         .padding(.horizontal, 30)
