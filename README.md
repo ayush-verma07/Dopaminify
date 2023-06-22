@@ -1,1 +1,3 @@
 # Dopaminify
+
+Dopaminify is an innovative app designed to help users break free from the social media dopamine loop and regain control over their screen time. With a user-friendly interface built using SwiftUI, Dopaminify allows individuals, especially teens, to set their desired screen time goals through a series of personalized questions. Leveraging Apple's API, the app then generates insightful charts comparing their goals with their actual screen time, empowering users to make informed decisions about their digital habits. With the ability to create accounts and update goals, Dopaminify offers a convenient and flexible solution for users to track and manage their screen time consistently.
