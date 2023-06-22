@@ -7,19 +7,21 @@
 
 import SwiftUI
 import Firebase
+import FirebaseFirestore
 
 @main
 struct DopaminifyApp: App {
     @StateObject var viewModel = AuthViewModel()
-       
-       init() {
-           FirebaseApp.configure()
-       }
-       
-       var body: some Scene {
-           WindowGroup {
-               ContentView()
-                   .environmentObject(viewModel)
-           }
-       }
+    
+    init() {
+        FirebaseApp.configure()
+    }
+    
+    var body: some Scene {
+        WindowGroup {
+            ContentView()
+                .environmentObject(viewModel)
+        }
+    }
 }
+
