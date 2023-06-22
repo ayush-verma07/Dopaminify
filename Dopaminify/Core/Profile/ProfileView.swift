@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct ProfileView: View {
-@EnvironmentObject var viewModel: AuthViewModel
+    @EnvironmentObject var viewModel: AuthViewModel
+
+    
     var body: some View {
+    
       if let user = viewModel.currentUser {
             List {
                 Section {
@@ -57,10 +60,18 @@ struct ProfileView: View {
                     }
                     
                     Button {
-                        print("Delete Account")
-                    } label: {
-                       SettingsRowView(imageName: "xmark.circle.fill", title: "Delete Account", tintColor: .red)
-                    }
+                                Task {
+                                    do {
+                                        try await viewModel.deleteAccount()
+                                        try viewModel.signOut() // Sign out after successful account deletion
+                                        // Handle successful account deletion and sign out
+                                    } catch {
+                                        // Handle error
+                                    }
+                                }
+                            } label: {
+                                SettingsRowView(imageName: "xmark.circle.fill", title: "Delete Account", tintColor: .red)
+                            }
                 }
             }
       }
@@ -70,5 +81,6 @@ struct ProfileView: View {
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
         ProfileView().environmentObject(AuthViewModel())
+
     }
 }
