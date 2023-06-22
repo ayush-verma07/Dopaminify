@@ -36,11 +36,11 @@ struct ProfileView: View {
                 }
                 Section("System") {
                     HStack {
-                        SettingsRowView(imageName: "gear", title: "Version", tintColor: Color(.systemGray))
+                        SettingsRowView(imageName: "gear", title: "Version", tintColor: Color("DarkLight"))
                         
                         Spacer()
                         Text("1.0.0")
-                            .foregroundColor(.gray)
+                            .foregroundColor(Color("DarkLight"))
                             .font(.subheadline)
                     }
                     
@@ -48,7 +48,7 @@ struct ProfileView: View {
                 
                 Section("Account"){
                     HStack {
-                        SettingsRowView(imageName: "pencil", title: "Update Goals", tintColor: Color(.blue))
+                        SettingsRowView(imageName: "pencil", title: "Update Goals", tintColor: Color(.systemBlue))
                     }
                     Button {
                        viewModel.signOut()
