@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A01F4CA2A4155E9004FD121 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A01F4C92A4155E9004FD121 /* AboutView.swift */; };
+		2A1B4FB72A41508E00B6DB16 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1B4FB62A41508E00B6DB16 /* DashboardView.swift */; };
 		2A969C352A3F970200685453 /* DopaminifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A969C342A3F970200685453 /* DopaminifyApp.swift */; };
 		2A969C372A3F970200685453 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A969C362A3F970200685453 /* ContentView.swift */; };
 		2A969C392A3F970300685453 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A969C382A3F970300685453 /* Assets.xcassets */; };
@@ -14,7 +16,6 @@
 		2A969C4C2A3F983600685453 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A969C4B2A3F983600685453 /* LoginView.swift */; };
 		2A969C4E2A3F98C000685453 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A969C4D2A3F98C000685453 /* InputView.swift */; };
 		2A969C502A3F9A2200685453 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A969C4F2A3F9A2200685453 /* SignUpView.swift */; };
-		2A969C522A3F9AE200685453 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A969C512A3F9AE200685453 /* ProfileView.swift */; };
 		2A969C542A3F9BFE00685453 /* SettingsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A969C532A3F9BFE00685453 /* SettingsRowView.swift */; };
 		2A969C562A3F9C6E00685453 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A969C552A3F9C6E00685453 /* User.swift */; };
 		2A969C582A3F9E0E00685453 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A969C572A3F9E0E00685453 /* GoogleService-Info.plist */; };
@@ -22,9 +23,13 @@
 		2A969C5D2A3F9E9300685453 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 2A969C5C2A3F9E9300685453 /* FirebaseFirestore */; };
 		2A969C5F2A3F9E9300685453 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2A969C5E2A3F9E9300685453 /* FirebaseFirestoreSwift */; };
 		2A969C632A3F9F1E00685453 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A969C622A3F9F1E00685453 /* AuthViewModel.swift */; };
+		2AC29D122A425E5400A3E0C4 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 2AC29D112A425E5400A3E0C4 /* SwiftUICharts */; };
+		2ACA68872A4280CF00AFC67C /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACA68862A4280CF00AFC67C /* ProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2A01F4C92A4155E9004FD121 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		2A1B4FB62A41508E00B6DB16 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		2A969C312A3F970200685453 /* Dopaminify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dopaminify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A969C342A3F970200685453 /* DopaminifyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DopaminifyApp.swift; sourceTree = "<group>"; };
 		2A969C362A3F970200685453 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -34,11 +39,11 @@
 		2A969C4B2A3F983600685453 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		2A969C4D2A3F98C000685453 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		2A969C4F2A3F9A2200685453 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
-		2A969C512A3F9AE200685453 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		2A969C532A3F9BFE00685453 /* SettingsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRowView.swift; sourceTree = "<group>"; };
 		2A969C552A3F9C6E00685453 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2A969C572A3F9E0E00685453 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2A969C622A3F9F1E00685453 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		2ACA68862A4280CF00AFC67C /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +52,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A969C5B2A3F9E9300685453 /* FirebaseAuth in Frameworks */,
+				2AC29D122A425E5400A3E0C4 /* SwiftUICharts in Frameworks */,
 				2A969C5D2A3F9E9300685453 /* FirebaseFirestore in Frameworks */,
 				2A969C5F2A3F9E9300685453 /* FirebaseFirestoreSwift in Frameworks */,
 			);
@@ -149,7 +155,7 @@
 		2A969C4A2A3F981100685453 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				2A969C512A3F9AE200685453 /* ProfileView.swift */,
+				2ACA68862A4280CF00AFC67C /* ProfileView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -159,6 +165,8 @@
 			children = (
 				2A969C4B2A3F983600685453 /* LoginView.swift */,
 				2A969C4F2A3F9A2200685453 /* SignUpView.swift */,
+				2A1B4FB62A41508E00B6DB16 /* DashboardView.swift */,
+				2A01F4C92A4155E9004FD121 /* AboutView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -191,6 +199,7 @@
 				2A969C5A2A3F9E9300685453 /* FirebaseAuth */,
 				2A969C5C2A3F9E9300685453 /* FirebaseFirestore */,
 				2A969C5E2A3F9E9300685453 /* FirebaseFirestoreSwift */,
+				2AC29D112A425E5400A3E0C4 /* SwiftUICharts */,
 			);
 			productName = Dopaminify;
 			productReference = 2A969C312A3F970200685453 /* Dopaminify.app */;
@@ -222,6 +231,7 @@
 			mainGroup = 2A969C282A3F970100685453;
 			packageReferences = (
 				2A969C592A3F9E9300685453 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				2AC29D102A425E5400A3E0C4 /* XCRemoteSwiftPackageReference "ChartView" */,
 			);
 			productRefGroup = 2A969C322A3F970200685453 /* Products */;
 			projectDirPath = "";
@@ -252,10 +262,12 @@
 			files = (
 				2A969C4C2A3F983600685453 /* LoginView.swift in Sources */,
 				2A969C502A3F9A2200685453 /* SignUpView.swift in Sources */,
+				2A01F4CA2A4155E9004FD121 /* AboutView.swift in Sources */,
 				2A969C4E2A3F98C000685453 /* InputView.swift in Sources */,
 				2A969C372A3F970200685453 /* ContentView.swift in Sources */,
 				2A969C562A3F9C6E00685453 /* User.swift in Sources */,
-				2A969C522A3F9AE200685453 /* ProfileView.swift in Sources */,
+				2A1B4FB72A41508E00B6DB16 /* DashboardView.swift in Sources */,
+				2ACA68872A4280CF00AFC67C /* ProfileView.swift in Sources */,
 				2A969C352A3F970200685453 /* DopaminifyApp.swift in Sources */,
 				2A969C542A3F9BFE00685453 /* SettingsRowView.swift in Sources */,
 				2A969C632A3F9F1E00685453 /* AuthViewModel.swift in Sources */,
@@ -478,6 +490,14 @@
 				kind = branch;
 			};
 		};
+		2AC29D102A425E5400A3E0C4 /* XCRemoteSwiftPackageReference "ChartView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppPear/ChartView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -495,6 +515,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2A969C592A3F9E9300685453 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestoreSwift;
+		};
+		2AC29D112A425E5400A3E0C4 /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2AC29D102A425E5400A3E0C4 /* XCRemoteSwiftPackageReference "ChartView" */;
+			productName = SwiftUICharts;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

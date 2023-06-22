@@ -12,11 +12,29 @@ struct ContentView: View {
     
     var body: some View {
         if viewModel.userSession != nil {
-                ProfileView()
+                TabView {
+                    ProfileView()
+                        .tabItem {
+                            Image(systemName: "person")
+                            Text("Profile")
+                        }
+                    DashboardView()
+                        .tabItem {
+                            Image(systemName: "desktopcomputer")
+                            Text("Dashboard")
+                        }
+                    AboutView()
+                        .tabItem {
+                            Image(systemName: "info.circle")
+                            Text("About")
+                        }
+                }
+                .accentColor(.blue)
             } else {
                 LoginView()
             }
     }
+
 }
 
 struct ContentView_Previews: PreviewProvider {
@@ -24,3 +42,5 @@ struct ContentView_Previews: PreviewProvider {
         ContentView().environmentObject(AuthViewModel())
     }
 }
+
+

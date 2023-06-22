@@ -14,13 +14,15 @@ struct User: Identifiable, Codable {
     let email: String
     
     var initials: String {
-        let formatter = PersonNameComponentsFormatter()
-        if let components = formatter.personNameComponents(from: fullName){
-            formatter.style = .abbreviated
-            return formatter.string(from: components)
+        let nameComponents = fullName.components(separatedBy: " ")
+        let firstLetters = nameComponents.map { component in
+            guard let firstCharacter = component.first else { return "" }
+            return String(firstCharacter)
         }
-        return ""
+        return firstLetters.joined()
     }
+
+
     //Added temp
     var dictionary: [String: Any] {
         let data = (try? JSONEncoder().encode(self)) ?? Data()

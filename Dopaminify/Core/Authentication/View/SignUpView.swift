@@ -98,7 +98,7 @@ struct SignUpView: View {
             && confirmPassword == password
             && !fullName.isEmpty
         }
-    } 
+    }
     
     
     struct SignUpView_Previews: PreviewProvider {
@@ -106,4 +106,3 @@ struct SignUpView: View {
             SignUpView()
         }
     }
-
