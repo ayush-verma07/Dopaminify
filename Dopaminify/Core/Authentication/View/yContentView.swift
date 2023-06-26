@@ -3,7 +3,8 @@
 //  Dopaminify
 //
 //  Created by Ayush on 6/26/23.
-//
+//xContentView is one-time load
+//yContentView is on-click "Update Goals"
 
 import SwiftUI
 
