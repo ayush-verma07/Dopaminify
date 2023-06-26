@@ -11,7 +11,11 @@ struct ContentView: View {
     @EnvironmentObject var viewModel: AuthViewModel
     
     var body: some View {
-        if viewModel.userSession != nil {
+        //ProfileView()
+        if viewModel.currentUser != nil {
+            if viewModel.currentUser?.q1 == 20.0 {
+                xContentView()
+            } else {
                 TabView {
                     ProfileView()
                         .tabItem {
@@ -30,7 +34,8 @@ struct ContentView: View {
                         }
                 }
                 .accentColor(.blue)
-            } else {
+            }
+        } else {
                 LoginView()
             }
     }

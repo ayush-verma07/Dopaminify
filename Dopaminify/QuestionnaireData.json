@@ -1,0 +1,81 @@
+{
+  "results": [
+    {
+        "question": "What is your ideal daily screen time goal?",
+        "answers": [
+            "< 10hrs", "5hrs", "3hrs", "1hr", "30mins", "None"
+      ],
+        "answersInDouble": [10.0, 5.0, 3.0, 1.0, 0.5, 0.0]
+    },
+    {
+        "question": "By when would you like to accomplish this goal?",
+        "answers": [
+            "3 months", "2 months", "1 month", "2-3 weeks", "1-2 weeks", "<1 week"
+        ],
+        "answersInDouble": [12.0, 8.0, 4.0, 3.0, 2.0, 1.0]
+    },
+    {
+        "question": "Which platforms do you find yourself spending the most time on?",
+        "answers": [
+            "Social Media", "News Outlets", "Custom"
+        ],
+        "answersInDouble": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+    },
+    {
+        "question": "How frequently do you check your social media accounts throughout the day?",
+        "answers": [
+            "All the time", "Most of the day", "Sometimes", "Not that much"
+        ],
+        "answersInDouble": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+    },
+    {
+        "question": "Are there any specific apps or websites that you feel you excessively use?",
+        "answers": [
+            "TikTok", "YouTube", "Instagram", "Twitter", "Discord", "Custom"
+        ],
+        "answersInDouble": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+    },
+    {
+        "question": "Do you often find yourself mindlessly scrolling through content without a specific purpose?",
+        "answers": [
+            "Absolutely", "Only when I’m bored", "Never"
+        ],
+        "answersInDouble": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+    },
+    {
+        "question": "How do you feel after spending a significant amount of time on social media?",
+        "answers": [
+            "energized", "anxious", "disconnected", "relaxed"
+        ],
+        "answersInDouble": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+    },
+    {
+        "question": "Do you notice a decrease in productivity or attention span due to excessive screen time?",
+        "answers": [
+            "Yes", "Slightly", "Not at all"
+        ],
+        "answersInDouble": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+    },
+    {
+        "question": "Are there any specific activities or hobbies you would like to allocate more time to instead of social media usage?",
+        "answers": [
+            "Exercising", "spending time with friends & family", "studying/school related activities"
+        ],
+        "answersInDouble": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+    },
+    {
+        "question": "What strategies do you currently use to manage your screen time, if any?",
+        "answers": [
+            "Limited screen time", "timers/alarms", "schedule/planner"
+        ],
+        "answersInDouble": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+    },
+    {
+        "question": "How effective are those strategies you mentioned?",
+        "answers": [
+            "Highly", "Slightly", "Useless"
+        ],
+        "answersInDouble": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+    }
+    ]
+}

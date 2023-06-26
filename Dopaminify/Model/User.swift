@@ -8,11 +8,22 @@
 import Foundation
 import FirebaseFirestoreSwift
 
-struct User: Identifiable, Codable {
-    let id: String
-    let fullName: String
-    let email: String
+class User: Identifiable, Codable {
+    var id: String
+    var fullName: String
+    var email: String
+    var q1: Double
+    var q2: Double
     
+    init(id: String, fullName: String, email: String, q1: Double, q2: Double) {
+        self.id = id
+        self.fullName = fullName
+        self.email = email
+        self.q1 = q1
+        self.q2 = q2
+    }
+    
+
     var initials: String {
         let nameComponents = fullName.components(separatedBy: " ")
         let firstLetters = nameComponents.map { component in
@@ -32,5 +43,5 @@ struct User: Identifiable, Codable {
 
 
 extension User {
-    static var MOCK_USER = User(id: NSUUID().uuidString, fullName: "Julian Alvarez", email: "test@gmail.com")
+    //static var MOCK_USER = User(id: NSUUID().uuidString, fullName: "Julian Alvarez", email: "test@gmail.com")
 }
