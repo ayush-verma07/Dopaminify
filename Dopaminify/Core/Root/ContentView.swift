@@ -16,7 +16,7 @@ struct ContentView: View {
             if viewModel.currentUser?.q1 == 20.0 {
                 xContentView()
             } else {
-                TabView {
+               TabView {
                     ProfileView()
                         .tabItem {
                             Image(systemName: "person")
@@ -34,6 +34,7 @@ struct ContentView: View {
                         }
                 }
                 .accentColor(.blue)
+                
             }
         } else {
                 LoginView()

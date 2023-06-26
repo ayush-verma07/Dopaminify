@@ -13,13 +13,16 @@ struct QuestionnaireView: View {
 
     
     var body: some View {
+        
         if questionnaireManager.reachedEnd {
-                ContentView()
+            NavigationLink(destination: ProfileView().navigationBarBackButtonHidden(true)) {
+                ProfileView()
+                    .navigationBarBackButtonHidden(true)
+            }
         }
         else
         {
-            QuestionView()
-                .environmentObject(questionnaireManager)
+            QuestionView().environmentObject(self.questionnaireManager)
         }
     }
 }

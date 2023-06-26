@@ -10,7 +10,6 @@ import SwiftUI
 struct ProfileView: View {
     @EnvironmentObject var viewModel: AuthViewModel
     @EnvironmentObject var questionnaireManager: QuestionnaireManager
-    @State private var showQuestionnaireView = false
 
 
 
@@ -18,8 +17,6 @@ struct ProfileView: View {
     var body: some View {
         if let user = viewModel.currentUser {
             NavigationView {
-                
-                
                 List {
                     Section {
                         HStack {
@@ -56,18 +53,11 @@ struct ProfileView: View {
                     }
                     
                     Section("Account"){
-
-                            Button {
-                                showQuestionnaireView = true
-                            } label: {
-                                SettingsRowView(imageName: "pencil", title: "Update Goals", tintColor: Color(.systemBlue))
+                           NavigationLink(destination: yContentView().navigationBarBackButtonHidden(true)) {
+                                    SettingsRowView(imageName: "pencil", title: "Update Goals", tintColor: Color(.systemBlue))
                             }
-
-                            if showQuestionnaireView
-                            {
-                                QuestionnaireView().environmentObject(questionnaireManager)
-                            }
-
+                            .navigationBarHidden(true)
+                    
                             Button {
                                 viewModel.signOut()
                             } label: {
