@@ -35,8 +35,8 @@ class QuestionnaireManager: ObservableObject {
         
         do
         {
-                let filePath = "/Users/ayush/CongressionalApp/Dopaminify/Dopaminify/QuestionnaireData.json"
-                let fileUrl = URL(fileURLWithPath: filePath)
+                let filePath = Bundle.main.path(forResource: "QuestionnaireData", ofType: "json")
+                let fileUrl  = NSURL.fileURL(withPath: filePath!)
                 let jsonData = try Data(contentsOf: fileUrl)
                 let decoder = JSONDecoder()
                 let decodedData = try decoder.decode(Questionnaire.self, from: jsonData)
