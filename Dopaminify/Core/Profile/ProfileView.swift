@@ -78,6 +78,42 @@ struct ProfileView: View {
                                         SettingsRowView(imageName: "xmark.circle.fill", title: "Delete Account", tintColor: .red)
                                     }
                             }
+                    
+                    Section("Assistance"){
+
+                            Button {
+                                //
+                            } label: {
+                                SettingsRowView(imageName: "hand.thumbsup.fill", title: "Help & Support", tintColor: Color(.systemBlue))
+                            }
+
+                            Button {
+                                //
+                            } label: {
+                                SettingsRowView(imageName: "message.fill", title: "Report/Feedback", tintColor: Color(.systemOrange))
+                            }
+                        Button {
+                                    //
+                        } label: {
+                            SettingsRowView(imageName: "questionmark.circle.fill", title: "FAQs", tintColor: Color(.systemGray))
+                        }
+                            }
+                    
+                    Section("Legal Information"){
+
+                            Button {
+                                //
+                            } label: {
+                                SettingsRowView(imageName: "doc.text.fill", title: "Terms of Service", tintColor: Color(.systemBlue))
+                            }
+
+                            Button {
+                                //
+                            } label: {
+                                SettingsRowView(imageName: "lock.circle.fill", title: "Privacy Policy", tintColor: Color(.systemGreen))
+                            }
+                        }
+                    
                 }
             }
         }

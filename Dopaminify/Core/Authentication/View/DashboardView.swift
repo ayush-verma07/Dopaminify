@@ -66,18 +66,18 @@ struct DashboardView: View {
 
                     Spacer(minLength: 50)
 
-                    Text("Statistics")
+                    Text("Additional Info")
                         .font(.title)
                         .bold()
 
                     // Add user statistics views here
                     Text("Current Screen Time: TODO")
                         .font(.body)
-
-                    Text("Screen Time Goal: \(viewModel.currentUser!.q1, specifier: "%.2f") hour/s")
+                    
+                    Text("Screen Time Goal: \(viewModel.currentUser!.q1, specifier: "%.1f") hour/s")
                         .font(.body)
 
-                    Text("Time Frame to Accomplish Goal: \(viewModel.currentUser!.q2, specifier: "%.2f") week/s")
+                    Text("Time Frame: \(viewModel.currentUser!.q2, specifier: "%.0f") week/s")
                         .font(.body)
 
                     Spacer()

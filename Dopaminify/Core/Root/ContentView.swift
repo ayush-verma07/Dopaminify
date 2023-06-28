@@ -11,7 +11,6 @@ struct ContentView: View {
     @EnvironmentObject var viewModel: AuthViewModel
     
     var body: some View {
-        //ProfileView()
         if viewModel.currentUser != nil {
             if viewModel.currentUser?.q1 == 20.0 {
                 xContentView()

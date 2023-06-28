@@ -18,6 +18,7 @@ struct xContentView: View {
                     Text("Finish Registration")
                         .font(.largeTitle)
                         .fontWeight(.bold)
+                        .foregroundColor(.primary)
 
                     Text("Create Your Goals")
                         .font(.subheadline)

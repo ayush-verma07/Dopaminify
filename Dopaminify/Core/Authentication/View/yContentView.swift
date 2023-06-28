@@ -19,6 +19,7 @@ struct yContentView: View {
                     Text("Update Goals")
                         .font(.largeTitle)
                         .fontWeight(.bold)
+                        .foregroundColor(.primary)
 
                     Text("Change Answers")
                         .font(.subheadline)
@@ -42,7 +43,7 @@ struct yContentView: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .padding()
-            .background(Color.white)
+            .background(Color("darklight"))
         }
     }
 }
