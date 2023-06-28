@@ -10,9 +10,9 @@ import SwiftUI
 struct ProfileView: View {
     @EnvironmentObject var viewModel: AuthViewModel
     @EnvironmentObject var questionnaireManager: QuestionnaireManager
-
-
-
+    
+    
+    
     
     var body: some View {
         if let user = viewModel.currentUser {
@@ -49,75 +49,94 @@ struct ProfileView: View {
                                 .foregroundColor(Color("DarkLight"))
                                 .font(.subheadline)
                         }
+                        Button {
+                            //
+                        } label: {
+                            SettingsRowView(imageName: "clock.fill", title: "Update Log", tintColor: Color("DarkLight"))
+                        }
                         
                     }
                     
                     Section("Account"){
-                           NavigationLink(destination: yContentView().navigationBarBackButtonHidden(true)) {
-                                    SettingsRowView(imageName: "pencil", title: "Update Goals", tintColor: Color(.systemBlue))
+                        NavigationLink(destination: yContentView().navigationBarBackButtonHidden(true)) {
+                            SettingsRowView(imageName: "pencil", title: "Update Goals", tintColor: Color(.systemBlue))
+                        }
+                        .navigationBarHidden(true)
+                        
+                        Button {
+                            //
+                        } label: {
+                            SettingsRowView(imageName: "lock.rotation", title: "Change Password", tintColor: Color(.systemBlue))
+                        }
+                        
+                        Button {
+                            //
+                            
+                        } label: {
+                            SettingsRowView(imageName: "bell.circle.fill", title: "Notifications", tintColor: Color(.systemOrange))
+                        }
+                        
+                        
+                        Button {
+                            viewModel.signOut()
+                        } label: {
+                            SettingsRowView(imageName: "arrow.left.circle.fill", title: "Logout", tintColor: Color(.systemRed))
+                        }
+                        
+                        Button {
+                            Task {
+                                do {
+                                    try await viewModel.deleteAccount()
+                                    try viewModel.signOut() // Sign out after successful account deletion
+                                    // Handle successful account deletion and sign out
+                                } catch {
+                                    // Handle error
+                                }
                             }
-                            .navigationBarHidden(true)
-                    
-                            Button {
-                                viewModel.signOut()
-                            } label: {
-                                SettingsRowView(imageName: "arrow.left.circle.fill", title: "Logout", tintColor: .red)
-                            }
-
-                            Button {
-                                Task {
-                                    do {
-                                        try await viewModel.deleteAccount()
-                                        try viewModel.signOut() // Sign out after successful account deletion
-                                        // Handle successful account deletion and sign out
-                                    } catch {
-                                        // Handle error
-                                        }
-                                    }
-                                    } label: {
-                                        SettingsRowView(imageName: "xmark.circle.fill", title: "Delete Account", tintColor: .red)
-                                    }
-                            }
-                    
-                    Section("Assistance"){
-
+                        } label: {
+                            SettingsRowView(imageName: "xmark.circle.fill", title: "Delete Account", tintColor: Color(.systemRed))
+                        }
+                    }
+                        
+                        Section("Assistance"){
+                            
                             Button {
                                 //
                             } label: {
                                 SettingsRowView(imageName: "hand.thumbsup.fill", title: "Help & Support", tintColor: Color(.systemBlue))
                             }
-
+                            
                             Button {
                                 //
                             } label: {
                                 SettingsRowView(imageName: "message.fill", title: "Report/Feedback", tintColor: Color(.systemOrange))
                             }
-                        Button {
-                                    //
-                        } label: {
-                            SettingsRowView(imageName: "questionmark.circle.fill", title: "FAQs", tintColor: Color(.systemGray))
-                        }
+                            Button {
+                                //
+                            } label: {
+                                SettingsRowView(imageName: "questionmark.circle.fill", title: "FAQs", tintColor: Color(.systemGray))
                             }
-                    
-                    Section("Legal Information"){
-
+                        }
+                        
+                        Section("Legal Information"){
+                            
                             Button {
                                 //
                             } label: {
                                 SettingsRowView(imageName: "doc.text.fill", title: "Terms of Service", tintColor: Color(.systemBlue))
                             }
-
+                            
                             Button {
                                 //
                             } label: {
                                 SettingsRowView(imageName: "lock.circle.fill", title: "Privacy Policy", tintColor: Color(.systemGreen))
                             }
                         }
-                    
+                        
+                    }
                 }
             }
         }
-    }
 }
 
 struct ProfileView_Previews: PreviewProvider {
