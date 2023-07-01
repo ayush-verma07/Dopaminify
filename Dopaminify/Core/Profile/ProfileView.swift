@@ -6,13 +6,14 @@
 //
 
 import SwiftUI
+import MessageUI
 
 struct ProfileView: View {
     @EnvironmentObject var viewModel: AuthViewModel
     @EnvironmentObject var questionnaireManager: QuestionnaireManager
-    
-    
-    
+    @State private var showErrorAlert = false
+    @State private var errorMessage = ""
+    @State private var showMailView = false
     
     var body: some View {
         if let user = viewModel.currentUser {
@@ -40,6 +41,7 @@ struct ProfileView: View {
                             }
                         }
                     }
+                    
                     Section("System") {
                         HStack {
                             SettingsRowView(imageName: "gear", title: "Version", tintColor: Color("DarkLight"))
@@ -89,59 +91,69 @@ struct ProfileView: View {
                                     try await viewModel.deleteAccount()
                                     try viewModel.signOut() // Sign out after successful account deletion
                                     // Handle successful account deletion and sign out
-                                } catch {
-                                    // Handle error
+                                } catch let error {
+                                    errorMessage = error.localizedDescription
+                                    showErrorAlert = true
                                 }
                             }
                         } label: {
                             SettingsRowView(imageName: "xmark.circle.fill", title: "Delete Account", tintColor: Color(.systemRed))
                         }
                     }
-                        
-                        Section("Assistance"){
-                            
-                            Button {
-                                //
-                            } label: {
-                                SettingsRowView(imageName: "hand.thumbsup.fill", title: "Help & Support", tintColor: Color(.systemBlue))
-                            }
-                            
-                            Button {
-                                //
-                            } label: {
-                                SettingsRowView(imageName: "message.fill", title: "Report/Feedback", tintColor: Color(.systemOrange))
-                            }
-                            Button {
-                                //
-                            } label: {
-                                SettingsRowView(imageName: "questionmark.circle.fill", title: "FAQs", tintColor: Color(.systemGray))
-                            }
+                    
+                    Section("Assistance"){
+                        Button(action: {
+                            showMailView = true
+                        }) {
+                            SettingsRowView(imageName: "hand.thumbsup.fill", title: "Help & Support", tintColor: Color(.systemBlue))
                         }
                         
-                        Section("Legal Information"){
-                            
-                            Button {
-                                //
-                            } label: {
-                                SettingsRowView(imageName: "doc.text.fill", title: "Terms of Service", tintColor: Color(.systemBlue))
-                            }
-                            
-                            Button {
-                                //
-                            } label: {
-                                SettingsRowView(imageName: "lock.circle.fill", title: "Privacy Policy", tintColor: Color(.systemGreen))
-                            }
+                        Button(action: {
+                            showMailView = true
+                        }) {
+                            SettingsRowView(imageName: "message.fill", title: "Report/Feedback", tintColor: Color(.systemOrange))
                         }
                         
+                        Button {
+                            //
+                        } label: {
+                            SettingsRowView(imageName: "questionmark.circle.fill", title: "FAQs", tintColor: Color(.systemGray))
+                        }
+                    }
+                    
+                    Section("Legal Information"){
+                        Button {
+                            //
+                        } label: {
+                            SettingsRowView(imageName: "doc.text.fill", title: "Terms of Service", tintColor: Color(.systemBlue))
+                        }
+                        
+                        Button {
+                            //
+                        } label: {
+                            SettingsRowView(imageName: "lock.circle.fill", title: "Privacy Policy", tintColor: Color(.systemGreen))
+                        }
                     }
                 }
+                .alert(isPresented: $showErrorAlert) {
+                    Alert(
+                        title: Text("Error"),
+                        message: Text(errorMessage),
+                        dismissButton: .default(Text("OK"))
+                    )
+                }
+                .sheet(isPresented: $showMailView, onDismiss: {
+                    // Handle mail view dismissed if needed
+                }, content: {
+                    MailView()
+                })
             }
         }
+    }
 }
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
         ProfileView().environmentObject(AuthViewModel())
-
     }
 }
