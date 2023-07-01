@@ -11,6 +11,8 @@ struct LoginView: View {
     @State private var email = ""
     @State private var password = ""
     @EnvironmentObject var viewModel: AuthViewModel
+    @State private var showError = false
+    @State private var errorMessage = ""
 
     
     var body: some View {
@@ -37,7 +39,12 @@ struct LoginView: View {
                     
                     Button {
                         Task {
-                         try await viewModel.login(withEmail: email, password: password)
+                            do {
+                                try await viewModel.login(withEmail: email, password: password)
+                            } catch let error {
+                                errorMessage = error.localizedDescription
+                                showError = true
+                            }
                         }
                     } label: {
                         HStack {
@@ -70,7 +77,15 @@ struct LoginView: View {
                         .font(.system(size: 18))
                     }
             }
-                .background(LinearGradient(gradient: Gradient(colors: [Color .white,.yellow]), startPoint: .top, endPoint: .bottom))
+            .alert(isPresented: $showError) {
+                print(errorMessage)
+                return Alert(
+                    title: Text("Error"),
+                    message: Text(errorMessage),
+                    dismissButton: .default(Text("OK"))
+                )
+            }
+            .background(LinearGradient(gradient: Gradient(colors: [Color .white,.yellow]), startPoint: .top, endPoint: .bottom))
         }
     }
 }
@@ -86,6 +101,6 @@ extension LoginView: AuthenticationFormProtocol {
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView()//.environmentObject(AuthViewModel())
+        LoginView().environmentObject(AuthViewModel())
     }
 }

@@ -16,6 +16,8 @@ struct SignUpView: View {
     @State private var confirmPassword = ""
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var viewModel: AuthViewModel
+    @State private var showError = false
+    @State private var errorMessage = ""
 
     
     var body: some View {
@@ -58,7 +60,12 @@ struct SignUpView: View {
             
             Button {
                 Task {
-                    try await viewModel.createUser(withEmail: email, password: password, fullName: fullName, q1: 20.0, q2: 20.0)
+                    do {
+                        try await viewModel.createUser(withEmail: email, password: password, fullName: fullName, q1: 20.0, q2: 20.0)
+                    } catch let error {
+                        errorMessage = error.localizedDescription
+                        showError = true
+                    }
                 }
 
             } label: {
@@ -86,6 +93,13 @@ struct SignUpView: View {
                 }
                 .font(.system(size:18))
             }
+        }
+        .alert(isPresented: $showError) {
+            Alert(
+                title: Text("Error"),
+                message: Text(errorMessage),
+                dismissButton: .default(Text("OK"))
+            )
         }
         .background(LinearGradient(gradient: Gradient(colors: [Color .white,.yellow]), startPoint: .top, endPoint: .bottom))
     }

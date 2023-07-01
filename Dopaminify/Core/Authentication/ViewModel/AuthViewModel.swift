@@ -36,7 +36,8 @@ class AuthViewModel: ObservableObject {
             self.userSession = result.user
             await fetchUser()
         } catch {
-            print("DEBUG: Failed to log in with error \(error.localizedDescription)")
+            print("ERROR: Failed to log in with error \(error.localizedDescription)")
+            throw error
         }
         
     }
@@ -52,7 +53,8 @@ class AuthViewModel: ObservableObject {
             try await Firestore.firestore().collection("users").document(user.id).setData(encodedUser)
             await fetchUser()
         } catch {
-            print("DEBUG: Failed to create user with error \(error.localizedDescription)")
+            print("ERROR: Failed to create user with error \(error.localizedDescription)")
+            throw error
         } 
     }
     
@@ -63,7 +65,7 @@ class AuthViewModel: ObservableObject {
             await fetchUser()
             print("User updated")
         } catch {
-            print("DEBUG: Failed to create user with error \(error.localizedDescription)")
+            print("DEBUG: Failed to update user with error \(error.localizedDescription)")
         }
     }
     
