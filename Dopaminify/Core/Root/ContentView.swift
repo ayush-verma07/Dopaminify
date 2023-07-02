@@ -26,11 +26,16 @@ struct ContentView: View {
                             Image(systemName: "desktopcomputer")
                             Text("Dashboard")
                         }
-                    AboutView()
-                        .tabItem {
-                            Image(systemName: "info.circle")
-                            Text("About")
-                        }
+                   RewardsView()
+                       .tabItem {
+                           Image(systemName: "gift")
+                           Text("Rewards")
+                       }
+                   AboutView()
+                       .tabItem {
+                           Image(systemName: "info.circle")
+                           Text("About")
+                       }
                 }
                 .accentColor(.blue)
                 
