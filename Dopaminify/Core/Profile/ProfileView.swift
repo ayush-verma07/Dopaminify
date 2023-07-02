@@ -101,11 +101,11 @@ struct ProfileView: View {
                         }
                     }
                     
-                    Section("Assistance"){
+                    Section("Support"){
                         Button(action: {
                             showMailView = true
                         }) {
-                            SettingsRowView(imageName: "hand.thumbsup.fill", title: "Help & Support", tintColor: Color(.systemBlue))
+                            SettingsRowView(imageName: "hand.thumbsup.fill", title: "Help Center", tintColor: Color(.systemBlue))
                         }
                         
                         Button(action: {
