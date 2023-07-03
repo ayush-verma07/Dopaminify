@@ -4,6 +4,7 @@
 
 import SwiftUI
 import Charts
+import WebKit
 
 struct Item: Identifiable {
     var id = UUID()
@@ -13,6 +14,22 @@ struct Item: Identifiable {
 
 struct DashboardView: View {
     @EnvironmentObject var viewModel: AuthViewModel
+    
+    init() {
+        if let bundlePath = Bundle.main.path(forResource: "google-charts", ofType: "html") {
+            print("HTML file path: \(bundlePath)")
+        } else {
+            print("HTML file not found in the app bundle")
+        }
+        let webView = WKWebView(frame: .zero)
+        self.webView = webView
+
+        if let htmlPath = Bundle.main.path(forResource: "google-charts", ofType: "html") {
+            let htmlURL = URL(fileURLWithPath: htmlPath)
+            webView.loadFileURL(htmlURL, allowingReadAccessTo: htmlURL.deletingLastPathComponent())
+        }
+    }
+
 
     let items: [Item] = [
         Item(type: "A", value: 100),
@@ -21,6 +38,8 @@ struct DashboardView: View {
         Item(type: "D", value: 11),
         Item(type: "E", value: 49),
     ]
+    
+    var webView: WKWebView!
 
     var body: some View {
         if viewModel.currentUser != nil{
@@ -33,10 +52,25 @@ struct DashboardView: View {
                     .foregroundColor(.secondary)
                     .padding(.bottom, 12)
 
-                ScrollView {
-                    BarChartView()
+                VStack {
+                    Spacer()
 
-                    Chart(items) { item in
+                    // Chart View
+                    WebView(webView: webView)
+                    .frame(width: 500, height: 400) // Adjust size as needed
+
+                    Spacer()
+                    }
+                    .alignmentGuide(.top) { _ in UIScreen.main.bounds.size.height / 2 }
+                    .frame(maxHeight: .infinity)
+
+                    Spacer()
+                ScrollView {
+                    
+                    
+                    //BarChartView()
+
+                    /*Chart(items) { item in
                         RuleMark(y: .value("Goal", 71))
                             .foregroundStyle(Color.red)
                             .lineStyle(StrokeStyle(lineWidth: 1, dash: [5]))
@@ -68,7 +102,7 @@ struct DashboardView: View {
 
                     Text("Additional Info")
                         .font(.title)
-                        .bold()
+                        .bold() */
 
                     // Add user statistics views here
                     Text("Current Screen Time: TODO")
@@ -81,6 +115,7 @@ struct DashboardView: View {
                         .font(.body)
 
                     Spacer()
+      
                 }
                 .padding()
             }
@@ -98,3 +133,16 @@ struct DashboardView: View {
         DashboardView()
    }
 } */
+
+struct WebView: UIViewRepresentable {
+    
+    let webView: WKWebView
+
+    func makeUIView(context: Context) -> WKWebView {
+        return webView
+    }
+
+    func updateUIView(_ uiView: WKWebView, context: Context) {
+        // No need for updates in this case
+    }
+}

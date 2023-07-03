@@ -1,0 +1,36 @@
+<html>
+    <head>
+      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+      <script type="text/javascript">
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+  
+        function drawChart() {
+          var data = google.visualization.arrayToDataTable([
+            ['Day', 'Current Screen Time', 'Goal'],
+            ['Sun',  11, 10],
+            ['Mon',  8,      9],
+            ['Tue',  9,       8],
+            ['Wed',  10,      7],
+            ['Thu',  11,      6],
+            ['Fri',  7,       5],
+            ['Sat',  7,      4]
+          ]);
+  
+          var options = {
+            title: 'My Screen Time (hours)',
+            curveType: 'function',
+            legend: { position: 'bottom' }
+          };
+  
+          var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+  
+          chart.draw(data, options);
+        }
+      </script>
+    </head>
+    <body>
+      <div id="curve_chart" style="width: 1200px; height: 1000px"></div>
+    </body>
+  </html>
+  
