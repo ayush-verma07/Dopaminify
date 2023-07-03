@@ -48,10 +48,38 @@ struct RewardsView: View {
                     .padding(.vertical, 8)
                 }
                 .listStyle(GroupedListStyle())
+            
+            Section(header: Text("Weekly Challenges")) {
+                           ChallengeTile(title: "Drink Water", points: 20)
+                           ChallengeTile(title: "Take a Walk", points: 30)
+                           ChallengeTile(title: "Read a Book", points: 40)
+                       }
             }
+
             .navigationTitle("Rewards")
         }
     }
+struct ChallengeTile: View {
+    let title: String
+    let points: Int
+    
+    var body: some View {
+        VStack {
+            Text(title)
+                .font(.title2)
+                .fontWeight(.bold)
+                .padding(.bottom, 4)
+            Text("Points: \(points)")
+                .font(.caption)
+                .foregroundColor(.secondary)
+        }
+        .padding()
+        .background(Color.gray.opacity(0.1))
+        .cornerRadius(10)
+        .padding(.horizontal, 8)
+        .padding(.vertical, 4)
+    }
+}
 
 struct RewardsView_Previews: PreviewProvider {
     static var previews: some View {
