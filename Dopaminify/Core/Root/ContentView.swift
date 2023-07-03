@@ -36,11 +36,6 @@ struct ContentView: View {
                            Image(systemName: "info.circle")
                            Text("About")
                        }
-                   ScreenTimeView()
-                       .tabItem {
-                           Image(systemName: "info.circle")
-                           Text("ScreenTime")
-                       }
                 }
                 .accentColor(.blue)
                 
