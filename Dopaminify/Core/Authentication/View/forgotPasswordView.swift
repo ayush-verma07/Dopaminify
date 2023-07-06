@@ -1,16 +1,16 @@
 //
-//  LoginView.swift
-//  SignUp_LogIn
+//  forgotPasswordView.swift
+//  Dopaminify
 //
-//  Created by Ayush on 6/15/23.
+//  Created by Ayush on 7/5/23.
 //
 
 import SwiftUI
 
-struct LoginView: View {
+struct forgotPasswordView: View {
     @State private var email = ""
-    @State private var password = ""
     @EnvironmentObject var viewModel: AuthViewModel
+    @State private var showAlert = false
     @State private var showError = false
     @State private var errorMessage = ""
 
@@ -29,18 +29,17 @@ struct LoginView: View {
                     VStack(spacing: 24) {
                         InputView(text: $email, title: "Email Address", placeholder: "name@example.com")
                             .autocapitalization(.none)
-                        
-                        InputView(text: $password, title: "Password", placeholder: "Enter your password", isSecureField: true)
-                    }
+                                            }
                     .padding(.horizontal)
                     .padding(.top, 12)
                     
-                    //log  in
+                    //button
                     
                     Button {
                         Task {
                             do {
-                                try await viewModel.login(withEmail: email, password: password)
+                                try await viewModel.forgotPass(withEmail: email)
+                                showAlert = true
                             } catch let error {
                                 errorMessage = error.localizedDescription
                                 showError = true
@@ -48,9 +47,9 @@ struct LoginView: View {
                         }
                     } label: {
                         HStack {
-                            Text("LOGIN")
+                            Text("SEND")
                                 .fontWeight(.bold)
-                            Image(systemName: "arrow.turn.up.right")
+                            Image(systemName: "envelope")
                         }
                         .foregroundColor(.white)
                         .frame(width: UIScreen.main.bounds.width - 32, height: 48)
@@ -61,33 +60,7 @@ struct LoginView: View {
                     .cornerRadius(15)
                     .padding(.top, 24)
                     
-                    NavigationLink {
-                       forgotPasswordView()
-                           .navigationBarBackButtonHidden(false)
-                    } label: {
-                        HStack {
-                            Text("Forgot password?")
-                                .fontWeight(.light)
-                        }
-                        .font(.system(size: 12))
-                        .padding(.top, 18)
-                    }
-                    
                     Spacer()
-                    
-                    //sign up
-                    
-                    NavigationLink {
-                       SignUpView()
-                           .navigationBarBackButtonHidden(true)
-                    } label: {
-                        HStack(spacing: 5) {
-                            Text("Don't have an account?")
-                            Text("Sign Up")
-                                .fontWeight(.semibold)
-                        }
-                        .font(.system(size: 18))
-                    }
             }
             .alert(isPresented: $showError) {
                 print(errorMessage)
@@ -97,22 +70,29 @@ struct LoginView: View {
                     dismissButton: .default(Text("OK"))
                 )
             }
+            .alert(isPresented: $showAlert) {
+                print(errorMessage)
+                return Alert(
+                    title: Text("Success"),
+                    message: Text("A password reset email has been sent."),
+                    dismissButton: .default(Text("OK"))
+                )
+            }
             .background(LinearGradient(gradient: Gradient(colors: [Color .white,.yellow]), startPoint: .top, endPoint: .bottom))
         }
     }
 }
 
-extension LoginView: AuthenticationFormProtocol {
+extension forgotPasswordView: AuthenticationFormProtocol {
     var formIsValid: Bool {
         return !email.isEmpty
         && email.contains("@")
-        && !password.isEmpty
-        && password.count > 5
     }
 }
 
-struct LoginView_Previews: PreviewProvider {
+struct forgotPasswordView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView().environmentObject(AuthViewModel())
+        forgotPasswordView()
     }
 }
+

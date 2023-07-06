@@ -91,6 +91,13 @@ class AuthViewModel: ObservableObject {
             }
         }
     
+    func forgotPass(withEmail email: String) async throws {
+        let auth = Auth.auth()
+        
+        try await auth.sendPasswordReset(withEmail: email)
+        
+    }
+    
     func fetchUser() async {
         guard let uid = Auth.auth().currentUser?.uid else {return}
         guard let snapshot = try? await Firestore.firestore().collection("users").document(uid).getDocument() else {return}

@@ -12,6 +12,7 @@ struct ProfileView: View {
     @EnvironmentObject var viewModel: AuthViewModel
     @EnvironmentObject var questionnaireManager: QuestionnaireManager
     @State private var showErrorAlert = false
+    @State private var showForgotPasswordView = false
     @State private var errorMessage = ""
     @State private var showMailView = false
     
@@ -66,9 +67,12 @@ struct ProfileView: View {
                         .navigationBarHidden(true)
                         
                         Button {
-                            //
+                            showForgotPasswordView = true
                         } label: {
-                            SettingsRowView(imageName: "lock.rotation", title: "Change Password", tintColor: Color(.systemBlue))
+                            SettingsRowView(imageName: "lock.rotation", title: "Reset Password", tintColor: Color(.systemBlue))
+                        }
+                        .sheet(isPresented: $showForgotPasswordView) {
+                            forgotPasswordView()
                         }
                         
                         Button {
