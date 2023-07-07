@@ -13,6 +13,9 @@ struct ProfileView: View {
     @EnvironmentObject var questionnaireManager: QuestionnaireManager
     @State private var showErrorAlert = false
     @State private var showForgotPasswordView = false
+    @State private var showTerms = false
+    @State private var showPrivacy = false
+    @State private var showUpdate = false
     @State private var errorMessage = ""
     @State private var showMailView = false
     
@@ -53,9 +56,12 @@ struct ProfileView: View {
                                 .font(.subheadline)
                         }
                         Button {
-                            //
+                            showUpdate = true
                         } label: {
                             SettingsRowView(imageName: "clock.fill", title: "Update Log", tintColor: Color("DarkLight"))
+                        }
+                        .sheet(isPresented: $showUpdate) {
+                            UpdateLogView()
                         }
                         
                     }
@@ -127,15 +133,21 @@ struct ProfileView: View {
                     
                     Section("Legal Information"){
                         Button {
-                            //
+                            showTerms = true
                         } label: {
                             SettingsRowView(imageName: "doc.text.fill", title: "Terms of Service", tintColor: Color(.systemBlue))
                         }
+                        .sheet(isPresented: $showTerms) {
+                            TermsView()
+                        }
                         
                         Button {
-                            //
+                            showPrivacy = true
                         } label: {
                             SettingsRowView(imageName: "lock.circle.fill", title: "Privacy Policy", tintColor: Color(.systemGreen))
+                        }
+                        .sheet(isPresented: $showPrivacy) {
+                            PrivacyPolicyView()
                         }
                     }
                 }
