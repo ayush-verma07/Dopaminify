@@ -74,7 +74,7 @@ struct forgotPasswordView: View {
                 print(errorMessage)
                 return Alert(
                     title: Text("Success"),
-                    message: Text("A password reset email has been sent."),
+                    message: Text("A password reset email has been sent. Please check your spam folders just in case. If you do not see the email, please retry sending the email or contact us through the Help Center in your Profile."),
                     dismissButton: .default(Text("OK"))
                 )
             }
