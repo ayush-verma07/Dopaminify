@@ -16,6 +16,7 @@ struct ProfileView: View {
     @State private var showTerms = false
     @State private var showPrivacy = false
     @State private var showUpdate = false
+    @State private var showFAQ = false
     @State private var errorMessage = ""
     @State private var showMailView = false
     
@@ -125,10 +126,14 @@ struct ProfileView: View {
                         }
                         
                         Button {
-                            //
+                            showFAQ = true
                         } label: {
                             SettingsRowView(imageName: "questionmark.circle.fill", title: "FAQs", tintColor: Color(.systemGray))
                         }
+                        .sheet(isPresented: $showFAQ) {
+                            FAQView()
+                        }
+
                     }
                     
                     Section("Legal Information"){
