@@ -11,6 +11,7 @@ import FamilyControls
 struct ScreenTimeView: View {
     @StateObject var model = MyScreenModel.shared
     @State var isPresented = false
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         if(model.isAuthorized) {
@@ -27,7 +28,8 @@ struct ScreenTimeView: View {
                 .bold()
                 .padding(.top, 10)
             Button("Close") {
-                isPresented = false
+                //isPresented = false
+                dismiss()
             }
         }
     }
