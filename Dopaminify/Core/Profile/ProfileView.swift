@@ -17,6 +17,7 @@ struct ProfileView: View {
     @State private var showPrivacy = false
     @State private var showUpdate = false
     @State private var showFAQ = false
+    @State private var showNotifs = false
     @State private var errorMessage = ""
     @State private var showMailView = false
     
@@ -83,10 +84,13 @@ struct ProfileView: View {
                         }
                         
                         Button {
-                            //
+                            showNotifs = true
                             
                         } label: {
                             SettingsRowView(imageName: "bell.circle.fill", title: "Notifications", tintColor: Color(.systemOrange))
+                        }
+                        .sheet(isPresented: $showNotifs){
+                            NotificationsView()
                         }
                         
                         
