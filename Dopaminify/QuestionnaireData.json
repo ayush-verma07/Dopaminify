@@ -3,16 +3,16 @@
     {
         "question": "What is your ideal daily screen time goal?",
         "answers": [
-            "< 10hrs", "5hrs", "3hrs", "1hr", "30mins", "None"
+            "< 10hrs", "5hrs", "3hrs", "1hr", "30mins"
       ],
-        "answersInDouble": [10.0, 5.0, 3.0, 1.0, 0.5, 0.0]
+        "answersInDouble": [10.0, 5.0, 3.0, 1.0, 0.5]
     },
     {
         "question": "By when would you like to accomplish this goal?",
         "answers": [
-            "3 months", "2 months", "1 month", "2-3 weeks", "1-2 weeks", "<1 week"
+            "3 months", "2 months", "1 month", "1-2 weeks", "<1 week"
         ],
-        "answersInDouble": [12.0, 8.0, 4.0, 3.0, 2.0, 1.0]
+        "answersInDouble": [12.0, 8.0, 4.0, 2.0, 1.0]
     },
     {
         "question": "Which platforms do you find yourself spending the most time on?",
